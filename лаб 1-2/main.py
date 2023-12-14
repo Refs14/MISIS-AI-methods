@@ -24,13 +24,14 @@ locals = [(1,'Россия', 'рубль', 1.0),
         (10,'Австралия', 'австралийский доллар', 59.95)]
 
 # добавляем в таблицу localization 10 записей выше
-#cursor.executemany('INSERT INTO localization VALUES (?, ?, ?, ?)', locals)
+cursor.executemany('INSERT INTO localization VALUES (?, ?, ?, ?)', locals)
 
 
 # создаем таблицу c локализациями
 cursor.execute('''CREATE TABLE price
             	    (price_id INTEGER PRIMARY KEY, 
-                    game TEXT, price DOUBLE, 
+                    game TEXT, 
+                    price DOUBLE, 
                     localization_id INTEGER
                     FOREIGN KEY(localization_id) REFERENCES localization(localization_id))''')
 
@@ -49,5 +50,12 @@ for i in range(100):
     for j in range(1, 11):
         prices.append((i*10+j, games[i], current_geme_price*random.uniform(0.8, 1.2)/cur_weight[j-1], j))
 
+cursor.executemany('INSERT INTO price VALUES (?, ?, ?, ?)', prices)
+
 conn.commit()
+
+cursor.execute("""SELECT p.game, (p.price*l.currency_weight) as rouble_price, l.country FROM price as p, localization as l where p.localization_id=l.localization_id and p.game='Pac-Man' order by rouble_price limit 10""")
+raw_data = cursor.fetchall()
+print(list(raw_data))
+
 conn.close()
