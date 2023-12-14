@@ -32,7 +32,7 @@ cursor.execute('''CREATE TABLE price
             	    (price_id INTEGER PRIMARY KEY, 
                     game TEXT, 
                     price DOUBLE, 
-                    localization_id INTEGER
+                    localization_id INTEGER,
                     FOREIGN KEY(localization_id) REFERENCES localization(localization_id))''')
 
 #дубль цен из переменной locals
@@ -53,9 +53,4 @@ for i in range(100):
 cursor.executemany('INSERT INTO price VALUES (?, ?, ?, ?)', prices)
 
 conn.commit()
-
-cursor.execute("""SELECT p.game, (p.price*l.currency_weight) as rouble_price, l.country FROM price as p, localization as l where p.localization_id=l.localization_id and p.game='Pac-Man' order by rouble_price limit 10""")
-raw_data = cursor.fetchall()
-print(list(raw_data))
-
 conn.close()
