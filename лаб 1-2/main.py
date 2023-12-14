@@ -51,5 +51,3 @@ for i in range(100):
 
 conn.commit()
 conn.close()
-
-cursor.fetchall()
