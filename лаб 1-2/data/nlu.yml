@@ -1,0 +1,36 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - привет
+    - прив
+    - приветик
+    - хей
+    - хай
+    - ку
+    - доброе утро
+    - добрый день
+    - добрый вечер
+    - приветики
+    - здарова
+    - здравствуй
+
+- intent: choose_game
+  examples: |
+    - где купить [Grand Theft Auto 5](GAME)?
+    - где купить [Stalker 2](GAME)?
+    - купить [Hotline Miami](GAME)
+    - хочу купить [GTA 5](GAME)
+    - купи [Skyrim](GAME)
+    - в какой стране купить [GTA5](GAME)?
+    - [GTA 5](GAME)
+    - [Fallout 3](GAME)
+
+- intent: goodbye
+  examples: |
+    - пока
+    - прощай
+    - увидимся
+    - пока-пока
+    - адьос

@@ -1,0 +1,13 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: choose_game
+  - action: action_find_prices
+  - intent: goodbye
+  - action: utter_goodbye
+

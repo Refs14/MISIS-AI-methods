@@ -1,0 +1,38 @@
+version: "3.1"
+
+intents:
+  - greet
+  - choose_game
+  - goodbye
+
+entities:
+  - GAME
+
+actions:
+  - utter_greet
+  - utter_choose_game
+  - utter_goodbye
+  - action_find_prices
+
+slots:
+  GAME:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: GAME
+
+
+responses:
+  utter_greet:
+  - text: "Хай! Какую игру хочешь купить в стиме? Я могу помочь выбрать страну с наименьшей ценой."
+
+  utter_choose_game:
+  - text: "А че думть? Покупай {GAME} в Турции и играй"
+
+  utter_goodbye:
+  - text: "Покеда"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
