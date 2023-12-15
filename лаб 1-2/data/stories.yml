@@ -2,12 +2,21 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: min_game_price
   steps:
   - intent: greet
   - action: utter_greet
   - intent: choose_game
   - action: action_find_prices
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: offer_random_game
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: need_offer
+  - action: action_offer_random
   - intent: goodbye
   - action: utter_goodbye
 

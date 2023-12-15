@@ -2,8 +2,13 @@ version: "3.1"
 
 rules:
 
-- rule: Говори пока
+- rule: пока
   steps:
   - intent: goodbye
   - action: utter_goodbye
+
+- rule: привет
+  steps:
+  - intent: greet
+  - action: utter_greet
 
