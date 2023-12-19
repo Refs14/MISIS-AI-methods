@@ -2,19 +2,24 @@ version: "3.1"
 
 intents:
   - greet
-  - choose_game
-  - need_offer
   - goodbye
+  - game_min_prices
+  - random_game
+  - cheapest_game
+  - random_game_in_genre
+  - write_genre
 
 entities:
+  - GENRE_NUMBER
   - GAME
 
 actions:
-  - utter_greet
-  - utter_choose_game
-  - utter_goodbye
-  - action_find_prices
-  - action_offer_random
+  - action_game_min_prices
+  - action_random_game
+  - action_cheapest_game
+  - action_random_game_in_genre
+  - action_choose_option
+  - action_get_genre
 
 slots:
   GAME:
@@ -23,15 +28,18 @@ slots:
     mappings:
     - type: from_entity
       entity: GAME
+  GENRE:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: GENRE_NUMBER
+      intent: write_genre
 
 
 responses:
   utter_greet:
-  - text: "Хай! Какую игру хочешь купить в стиме? Я могу помочь выбрать страну с наименьшей ценой."
-
-  utter_choose_game:
-  - text: "А че думть? Покупай {GAME} в Турции и играй"
-
+  - text: "Хай! Я - бот, который может помочь с выбором игры в Стим. С чем вам помочь?"
   utter_goodbye:
   - text: "Покеда"
 

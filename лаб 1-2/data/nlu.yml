@@ -1,6 +1,7 @@
 version: "3.1"
 
 nlu:
+
 - intent: greet
   examples: |
     - привет
@@ -16,26 +17,6 @@ nlu:
     - здарова
     - здравствуй
 
-- intent: choose_game
-  examples: |
-    - где купить [Grand Theft Auto 5](GAME)?
-    - где купить [Stalker 2](GAME)?
-    - купить [Hotline Miami](GAME)
-    - хочу купить [GTA 5](GAME)
-    - купи [Skyrim](GAME)
-    - в какой стране купить [GTA5](GAME)?
-    - [GTA 5](GAME)
-    - [Fallout 3](GAME)
-
-- intent: need_offer
-  examples: |
-    - предложи случайную игру
-    - случайная игра
-    - какую игру можешь предложить?
-    - не знаю, что посоветуешь?
-    - рандомная игра
-    - предложи что-нибудь сам
-
 - intent: goodbye
   examples: |
     - пока
@@ -43,3 +24,16 @@ nlu:
     - увидимся
     - пока-пока
     - адьос
+
+- intent: write_genre
+  examples: |
+    - [1](GENRE_NUMBER)
+    - [2](GENRE_NUMBER)
+    - [3](GENRE_NUMBER)
+    - [4](GENRE_NUMBER)
+    - [5](GENRE_NUMBER)
+    - [6](GENRE_NUMBER)
+    - [7](GENRE_NUMBER)
+    - [8](GENRE_NUMBER)
+    - [9](GENRE_NUMBER)
+    - [10](GENRE_NUMBER)

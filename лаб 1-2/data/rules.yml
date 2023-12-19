@@ -11,4 +11,31 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
+  - action: action_choose_option
 
+
+
+- rule: топ 3 низких цен игры 
+  steps:
+  - intent: game_min_prices
+  - action: action_game_min_prices
+
+- rule: случайная игра
+  steps:
+  - intent: random_game
+  - action: action_random_game
+
+- rule: самые дешевые игры
+  steps:
+  - intent: cheapest_game
+  - action: action_cheapest_game
+
+- rule: выбор жанра
+  steps:
+  - intent: random_game_in_genre
+  - action: action_get_genre
+
+- rule: рандом из жанра
+  steps:
+  - intent: write_genre
+  - action: action_random_game_in_genre

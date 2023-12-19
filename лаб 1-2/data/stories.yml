@@ -1,22 +1,41 @@
-version: "3.1"
-
-stories:
-
 - story: min_game_price
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: choose_game
-  - action: action_find_prices
+  - action: action_choose_option
+  - intent: game_min_prices
+  - action: action_game_min_prices
   - intent: goodbye
   - action: utter_goodbye
 
-- story: offer_random_game
+- story: random_game_price
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: need_offer
-  - action: action_offer_random
+  - action: action_choose_option
+  - intent: random_game
+  - action: action_random_game
   - intent: goodbye
   - action: utter_goodbye
 
+- story: cheapest_game_price
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_choose_option
+  - intent: cheapest_game
+  - action: action_cheapest_game
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: random_in_genre_game_price
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_choose_option
+  - intent: random_game_in_genre
+  - action: action_get_genre
+  - intent: write_genre
+  - action: action_random_game_in_genre
+  - intent: goodbye
+  - action: utter_goodbye
