@@ -25,15 +25,28 @@ nlu:
     - пока-пока
     - адьос
 
-- intent: write_genre
+- intent: game_number
   examples: |
-    - [1](GENRE_NUMBER)
-    - [2](GENRE_NUMBER)
-    - [3](GENRE_NUMBER)
-    - [4](GENRE_NUMBER)
-    - [5](GENRE_NUMBER)
-    - [6](GENRE_NUMBER)
-    - [7](GENRE_NUMBER)
-    - [8](GENRE_NUMBER)
-    - [9](GENRE_NUMBER)
-    - [10](GENRE_NUMBER)
+    - [1](GAME_NUMBER)
+    - [2](GAME_NUMBER)
+    - [3](GAME_NUMBER)
+    - [4](GAME_NUMBER)
+    - [5](GAME_NUMBER)
+    - [6](GAME_NUMBER)
+    - [7](GAME_NUMBER)
+    - [8](GAME_NUMBER)
+    - [9](GAME_NUMBER)
+    - [10](GAME_NUMBER)
+
+
+- intent: write_game
+  examples: |
+    - [Pac-Man](GAME)
+    - [Firewatch](GAME)
+    - [Outer Wilds](GAME)
+    - [Alan Wake](GAME)
+    - [Hollow Knight](GAME)
+    - [What Remains of Edith Finch](GAME)
+    - [Final Fantasy IX](GAME)
+    - [Persona 5](GAME)
+    - [Planescape: Torment](GAME)

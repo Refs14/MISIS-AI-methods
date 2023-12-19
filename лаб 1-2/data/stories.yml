@@ -1,14 +1,18 @@
-- story: min_game_price
+- story: 1. min_game_price
   steps:
   - intent: greet
   - action: utter_greet
   - action: action_choose_option
   - intent: game_min_prices
+  - action: utter_game_min_prices
+  - intent: write_game
+  - action: action_get_game
+  - intent: game_number
   - action: action_game_min_prices
   - intent: goodbye
   - action: utter_goodbye
 
-- story: random_game_price
+- story: 2. random_game_price
   steps:
   - intent: greet
   - action: utter_greet
@@ -18,7 +22,7 @@
   - intent: goodbye
   - action: utter_goodbye
 
-- story: cheapest_game_price
+- story: 3. cheapest_game_price
   steps:
   - intent: greet
   - action: utter_greet
@@ -28,14 +32,14 @@
   - intent: goodbye
   - action: utter_goodbye
 
-- story: random_in_genre_game_price
+- story: 4. random_in_genre_game_price
   steps:
   - intent: greet
   - action: utter_greet
   - action: action_choose_option
   - intent: random_game_in_genre
-  - action: action_get_genre
-  - intent: write_genre
+  - action: utter_choose_genre
+  - intent: genre_number
   - action: action_random_game_in_genre
   - intent: goodbye
   - action: utter_goodbye

@@ -7,11 +7,15 @@ intents:
   - random_game
   - cheapest_game
   - random_game_in_genre
-  - write_genre
+  - genre_number
+  - write_game
+  - game_number
 
 entities:
+  - GAME_NUMBER
   - GENRE_NUMBER
   - GAME
+  - GAME_LIST
 
 actions:
   - action_game_min_prices
@@ -20,6 +24,7 @@ actions:
   - action_random_game_in_genre
   - action_choose_option
   - action_get_genre
+  - action_get_game
 
 slots:
   GAME:
@@ -28,20 +33,59 @@ slots:
     mappings:
     - type: from_entity
       entity: GAME
-  GENRE:
+
+  GAME_NUMBER:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: GAME_NUMBER
+
+  GENRE_NUMBER:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: GENRE_NUMBER
-      intent: write_genre
+
+  GAME_LIST:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: GAME_LIST
 
 
 responses:
   utter_greet:
-  - text: "Хай! Я - бот, который может помочь с выбором игры в Стим. С чем вам помочь?"
+  - text: Хай! Я - бот, который может помочь с выбором игры в Стим. С чем вам помочь?
   utter_goodbye:
-  - text: "Покеда"
+  - text: Пока
+  utter_game_min_prices:
+  - text: Введите название игры
+  utter_choose_genre:
+  - text: "Выберите жанр:"
+    buttons:
+    - title: казуальная
+      payload: /genre_number{{"GENRE_NUMBER":"1"}}
+    - title: экшен
+      payload: /genre_number{{"GENRE_NUMBER":"2"}}
+    - title: шутер
+      payload: /genre_number{{"GENRE_NUMBER":"3"}}
+    - title: RPG
+      payload: /genre_number{{"GENRE_NUMBER":"4"}}
+    - title: стратегия
+      payload: /genre_number{{"GENRE_NUMBER":"5"}}
+    - title: хоррор
+      payload: /genre_number{{"GENRE_NUMBER":"6"}}
+    - title: стелс
+      payload: /genre_number{{"GENRE_NUMBER":"7"}}
+    - title: приключение
+      payload: /genre_number{{"GENRE_NUMBER":"8"}}
+    - title: файтинг
+      payload: /genre_number{{"GENRE_NUMBER":"9"}}
+    - title: выживание
+      payload: /genre_number{{"GENRE_NUMBER":"10"}}
 
 session_config:
   session_expiration_time: 60

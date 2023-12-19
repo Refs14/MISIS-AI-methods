@@ -13,29 +13,39 @@ rules:
   - action: utter_greet
   - action: action_choose_option
 
-
-
-- rule: топ 3 низких цен игры 
-  steps:
-  - intent: game_min_prices
-  - action: action_game_min_prices
-
-- rule: случайная игра
+- rule: путь 2. Найти топ 3 низких цен для случайной игры
   steps:
   - intent: random_game
   - action: action_random_game
 
-- rule: самые дешевые игры
+- rule: путь 3. Найти топ 3 самые дешевые игры
   steps:
   - intent: cheapest_game
   - action: action_cheapest_game
 
-- rule: выбор жанра
+- rule: путь 4. Найти рандомную игру из жанра
   steps:
   - intent: random_game_in_genre
-  - action: action_get_genre
+  - action: utter_choose_genre
 
-- rule: рандом из жанра
+- rule: выбор жанра
   steps:
-  - intent: write_genre
+  - intent: genre_number
   - action: action_random_game_in_genre
+
+
+
+- rule: 1. Найти топ 3 низких цен для игры
+  steps:
+  - intent: game_min_prices
+  - action: utter_game_min_prices
+
+- rule: ввод названия игры, вывод списка наилучших совпадений
+  steps:
+  - intent: write_game
+  - action: action_get_game
+
+- rule: выбор из данного ранее списка, поиск и вывод цены
+  steps:
+  - intent: game_number
+  - action: action_game_min_prices
